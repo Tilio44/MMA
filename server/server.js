@@ -1,8 +1,22 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const path = require("path");
+const app = express();
 
-app.get('/api', (req, res) => {
-    res.json({ "users" : ["user1", "user2"]})
-})
+// Serve the static files of the React app
+app.use(express.static(path.join(__dirname, "client", "src")));
 
-app.listen(3000, () => {console.log('Server is running on port 3000')})
+// Endpoint to serve the login page
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "src", "login.jsx"));
+});
+
+// API endpoint to provide user data
+app.get("/api", (req, res) => {
+  res.json({ users: ["user1", "user2"] });
+});
+
+// Server listening
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
