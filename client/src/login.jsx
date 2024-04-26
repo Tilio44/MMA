@@ -1,25 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log(`Username: ${username}, Password: ${password}`);
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          navigate("/");
+        } else {
+          alert(data.message);
+        }
+      });
   };
 
   return (
-    <div>
-      <h2>Page de connexion</h2>
+    <div class="container">
+      <h2>SE CONNECTER</h2>
       <form onSubmit={handleLogin}>
         <label>
-          Nom d'utilisateur:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <span class="visually-hidden">Email</span>
+          <input
+            type="text"
+            id="email"
+            aria-label="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </label>
         <label>
-          Mot de passe:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <span class="visually-hidden">Mot de passe</span>
+          <input
+            type="password"
+            id="password"
+            aria-label="Mot de passe"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </label>
         <input type="submit" value="Se connecter" />
       </form>
