@@ -25,6 +25,15 @@ header {
 	color: var(--textColor);
 }
 
+.text-about {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; 
+}
+
+
 nav a {
 	margin: 0 1rem;
 	color: var(--textColor);
@@ -91,4 +100,6 @@ nav {
 	nav a {
 		font-size: 1.5rem;
 	}
+	
+	
 }
