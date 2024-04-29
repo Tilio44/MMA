@@ -10,7 +10,8 @@ function Navbar() {
     }
 
     return (
-        <header>
+        <div class="navbar">
+            <header>
             <h3>Logo</h3>
             <nav ref={navRef}>
                 <a href="/#">Home</a>
@@ -25,6 +26,7 @@ function Navbar() {
                 <FaBars />
             </button>
         </header>
+        </div>
     );
     
 }
