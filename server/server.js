@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
 const bcrypt = require("bcrypt");
-const data = require("./data.json"); // Charger les données du fichier JSON
+const data = require("./data.json");
 
 app.use(express.json());
 

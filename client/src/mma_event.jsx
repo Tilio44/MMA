@@ -28,8 +28,10 @@ const EventList = () => {
                 </thead>
                 <tbody>
                     {events.map(event => (
-                        <tr key={event.name}>
-                            <td><Link to={`/events/${encodeURIComponent(event.name)}/${encodeURIComponent(JSON.stringify(event.odds))}`}>{event.name}</Link></td>
+                        <tr key={event.id}>
+                            <td>
+                                <Link to={`/events/${encodeURIComponent(event.name)}/${encodeURIComponent(JSON.stringify(event.odds))}/${encodeURIComponent(event.image_fighter_1)}/${encodeURIComponent(event.image_fighter_2)}`}>{event.name}</Link>
+                            </td>
                             <td>{new Date(event.start_datetime).toLocaleString()}</td>
                             <td>{Object.entries(event.odds).map(([fighter, odds]) => `${fighter}: ${odds}`).join(', ')}</td>
                         </tr>
