@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EventList = () => {
     const data = {
@@ -283,8 +284,8 @@ const EventList = () => {
               </thead>
               <tbody>
                   {data.events.map(event => (
-                      <tr key={event.id}>
-                          <td>{event.name}</td>
+                      <tr key={event.name}>
+                          <td><Link to={`/events/${encodeURIComponent(event.name)}/${encodeURIComponent(JSON.stringify(event.odds))}`}>{event.name}</Link></td>
                           <td>{new Date(event.start_datetime).toLocaleString()}</td>
                           <td>{Object.entries(event.odds).map(([fighter, odds]) => `${fighter}: ${odds}`).join(', ')}</td>
                       </tr>
