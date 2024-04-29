@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
 const bcrypt = require("bcrypt");
+const data = require("./data.json"); // Charger les données du fichier JSON
 
 app.use(express.json());
 
@@ -65,6 +66,9 @@ app.get("/home", (req, res) => {
   res.send("Bienvenue sur le site de paris sportif 100% UFC");
 });
 
+app.get("/events", (req, res) => {
+  res.json(data);
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
-
