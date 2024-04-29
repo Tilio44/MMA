@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "react-g": "^0.0.5",
+    "react-router-dom": "^6.23.0",
+    "react-scripts": "^3.0.1",
+    "web-vitals": "^3.5.2"
+  }
+}
