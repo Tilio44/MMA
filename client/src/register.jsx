@@ -80,6 +80,7 @@ function Register() {
           />
         </label>
         <input type="submit" value="S'inscrire" />
+        <a id="log-btn" href="/login">Se connecter</a>
       </form>
     </div>
   );

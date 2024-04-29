@@ -53,6 +53,7 @@ function LoginPage() {
           />
         </label>
         <input type="submit" value="Se connecter" />
+        <a id="reg-btn" href="/register">S'inscrire</a>
       </form>
     </div>
   );
