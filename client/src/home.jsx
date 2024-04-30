@@ -1,12 +1,11 @@
 import React from 'react';
-import "./home.css";
+import Navbar from './Composents/Navbar';
 
 function HomePage() {
   return (
-    <div>
-      <h1>Bienvenue sur la page d'accueil</h1>
-      <p>Ceci est la page d'accueil de notre application.</p>
-    </div>
+    <React.Fragment>
+      <Navbar />
+    </React.Fragment>
   );
 }
 
