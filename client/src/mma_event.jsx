@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import React from 'react';
+import Navbar from './Composents/Navbar';
+import EventList from './EventList'; // Assurez-vous d'importer correctement le composant EventList depuis le bon chemin
+
+
 const EventList = () => {
     const [events, setEvents] = useState([]);
 
